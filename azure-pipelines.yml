@@ -8,4 +8,5 @@ pool:
 
 steps:
 - powershell: (new-object net.webclient).DownloadFile('https://aka.ms/vs/15/release/vs_enterprise.exe','vs_enterprise.exe')
-- script: where vs_enterprise.exe
+- script: where devenv.exe
+- script: REM vs_enterprise.exe --installPath C:\minVS --add Microsoft.VisualStudio.Component.PowerShellTools.VS2017
