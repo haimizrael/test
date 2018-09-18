@@ -7,7 +7,7 @@ pool:
   vmImage: 'VS2017-Win2016'
 
 steps:
-- powershell: gci -Path 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise' -Filter 'PowerShellTools.TestAdapter.dll' -Recurse
+- powershell: gci -Path 'C:\' -Filter 'PowerShellTools.TestAdapter.dll' -Recurse
 #- powershell: gci -Path 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\Windows Azure Tools\Common' -Recurse
 #- powershell: (new-object net.webclient).DownloadFile('https://aka.ms/vs/15/release/vs_enterprise.exe','vs_enterprise.exe')
 #- powershell: Start-Process -Wait -NoNewWindow -FilePath vs_enterprise.exe -ArgumentList ('--norestart','--add Microsoft.VisualStudio.Component.PowerShell.Tools','--passive ','--wait');
