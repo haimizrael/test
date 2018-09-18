@@ -7,10 +7,9 @@ pool:
   vmImage: 'VS2017-Win2016'
 
 steps:
-- powershell: gci -Path 'C:\' -Filter 'PowerShellTools.TestAdapter.dll' -Recurse
+- script: cd \&dir /s PowerShellTools.TestAdapter.dll
 #- powershell: gci -Path 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\Windows Azure Tools\Common' -Recurse
-#- powershell: (new-object net.webclient).DownloadFile('https://aka.ms/vs/15/release/vs_enterprise.exe','vs_enterprise.exe')
-#- powershell: Start-Process -Wait -NoNewWindow -FilePath vs_enterprise.exe -ArgumentList ('--norestart','--add Microsoft.VisualStudio.Component.PowerShell.Tools','--passive ','--wait');
+- powershell: $path = Join-Path $PSScriptRoot 'PowerShellTools.15.0.vsix';(new-object net.webclient).DownloadFile('https://gcmappveyorconfigdev.blob.core.windows.net/gcm-appveyorconfig-dev/PowerShellTools.15.0.vsix?sp=r&st=2018-09-18T01:04:48Z&se=2099-09-18T09:04:48Z&spr=https&sv=2017-11-09&sig=aD2eYMKK13itci2S1asYSa7o596X7qmR2qhndkpSOws%3D&sr=b',$path);Start-Process -Wait -NoNewWindow -FilePath vsixinstaller.exe -ArgumentList ('/skuName:Enterprise', '/skuVersion:15.0', 'PowerShellTools.15.0.vsix');
 #- script: REM vs_enterprise.exe --installPath C:\minVS --add Microsoft.VisualStudio.Component.PowerShellTools.VS2017 --quiet --wait
 #- powershell: if (!(Get-Command Get-VSSetupInstance -EA SilentlyContinue)) { Install-Module VSSetup -Scope CurrentUser -AllowClobber -Force } (Get-VSSetupInstance -All |? { $_.Packages -like '*PowerShell*' } | Select-VSSetupInstance -Latest).InstallationPath
 #- powershell: if (!(Get-Command Get-VSSetupInstance -EA SilentlyContinue)) { Install-Module VSSetup -Scope CurrentUser -AllowClobber -Force } (Get-VSSetupInstance -All | Select-VSSetupInstance -Latest).Packages.UniqueId
