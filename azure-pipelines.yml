@@ -7,13 +7,6 @@ pool:
   vmImage: 'VS2017-Win2016'
 
 steps:
-- powershell: Invoke-RestMethod "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" -OutFile "$env:UserProfile/nuget.exe"
-- script: |
-    '%UserProfile%\nuget.exe sources Add -Name "azure" -Username pipeline -Password $(System.AccessToken) -StorePasswordInClearText -Source "https://pkgs.dev.azure.com/gcmlp/_packaging/feed/nuget/v3/index.json"'
-    '%UserProfile%\nuget.exe sources Remove -Name "nuget.org"'
-    '%UserProfile%\nuget.exe sources'
-    '%UserProfile%\nuget.exe sources Add -Name "nuget.org" -Source "https://api.nuget.org/v3/index.json"'
-
 #- powershell: gci -Path 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\Windows Azure Tools\Common' -Recurse
 #- powershell: (new-object net.webclient).DownloadFile('https://gcmappveyorconfigdev.blob.core.windows.net/gcm-appveyorconfig-dev/PowerShellTools.15.0.vsix?sp=r&st=2018-09-18T01:04:48Z&se=2099-09-18T09:04:48Z&spr=https&sv=2017-11-09&sig=aD2eYMKK13itci2S1asYSa7o596X7qmR2qhndkpSOws%3D&sr=b','c:\PowerShellTools.15.0.vsix')
 #- powershell: (new-object net.webclient).DownloadFile('https://gcmappveyorconfigdev.blob.core.windows.net/gcm-appveyorconfig-dev/PowerShellTools.15.0.vsix?sp=r&st=2018-09-18T01:04:48Z&se=2099-09-18T09:04:48Z&spr=https&sv=2017-11-09&sig=aD2eYMKK13itci2S1asYSa7o596X7qmR2qhndkpSOws%3D&sr=b','c:\PowerShellTools.15.0.vsix');Start-Process -Wait -NoNewWindow -FilePath 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\vsixinstaller.exe' -ArgumentList ('/quiet', '/force', '/norepair', '/shutdownprocesses', '/logfile:vsix.log', '/skuName:IntegratedShell', '/skuVersion:15.0.26203.0', 'c:\PowerShellTools.15.0.vsix');gc (Join-Path $env:TEMP 'vsix.log');
@@ -28,5 +21,5 @@ steps:
 
 # Install Splash
 
-#- powershell: $path = Join-Path $PSScriptRoot 'Splashtop_Streamer_Win_DEPLOY_INSTALLER_v3.2.6.0.exe';(new-object net.webclient).DownloadFile('https://gcmappveyorconfigdev.blob.core.windows.net/gcm-appveyorconfig-dev/Splashtop_Streamer_Win_DEPLOY_INSTALLER_v3.2.6.0.exe?sp=r&st=2018-09-18T02:12:40Z&se=2099-09-18T10:12:40Z&spr=https&sv=2017-11-09&sig=9Cr%2BNB2%2Bl8E402uxvL9oDZiLBd4O6xbWUfQACjZIVfg%3D&sr=b',$path);Start-Process -Wait -NoNewWindow -FilePath $path -ArgumentList ('prevercheck', '/s', '/i', 'dcode=3KHKYJXW3SAL,confirm_d=0,hidewindow=1');
-#- powershell: Start-Sleep -Seconds 3600
+- powershell: $path = Join-Path $PSScriptRoot 'Splashtop_Streamer_Win_DEPLOY_INSTALLER_v3.2.6.0.exe';(new-object net.webclient).DownloadFile('https://gcmappveyorconfigdev.blob.core.windows.net/gcm-appveyorconfig-dev/Splashtop_Streamer_Win_DEPLOY_INSTALLER_v3.2.6.0.exe?sp=r&st=2018-09-18T02:12:40Z&se=2099-09-18T10:12:40Z&spr=https&sv=2017-11-09&sig=9Cr%2BNB2%2Bl8E402uxvL9oDZiLBd4O6xbWUfQACjZIVfg%3D&sr=b',$path);Start-Process -Wait -NoNewWindow -FilePath $path -ArgumentList ('prevercheck', '/s', '/i', 'dcode=3KHKYJXW3SAL,confirm_d=0,hidewindow=1,notray,req_perm:0');
+- powershell: Start-Sleep -Seconds 3600
