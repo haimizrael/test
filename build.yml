@@ -3,6 +3,6 @@ resources:
   - repository: 'templates'
     type: 'github'
     name: 'haimizrael/test.template'
-    endpoint: 'haimizrael/test.git'
+    endpoint: 'haimizrael'
 jobs:
 - template: templates/build.steps.yml
