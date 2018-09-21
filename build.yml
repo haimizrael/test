@@ -2,7 +2,7 @@ resources:
   repositories:
   - repository: 'templates'
     type: 'github'
-    name: 'hizrael/test.template'
-    endpoint: 'https://github.com/hizrael/test.template.git'
+    name: 'haimizrael/test.template'
+    endpoint: 'https://github.com/haimizrael/test.template.git'
 jobs:
 - template: templates/build.steps.yml
