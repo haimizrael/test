@@ -5,4 +5,4 @@ resources:
     name: 'haimizrael/test.template'
     endpoint: 'haimizrael'
 jobs:
-- template: templates/build.steps.yml
+- template: templates/build.steps.yml@templates
