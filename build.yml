@@ -5,8 +5,4 @@ resources:
     name: 'haimizrael/test.template'
     endpoint: 'haimizrael'
 jobs:
-- job: Build
-  pool:
-    vmImage: 'VS2017-Win2016'
-  steps:
-  - template: build.steps.yml@templates
+- template: build.steps.yml@templates
