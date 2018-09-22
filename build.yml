@@ -4,5 +4,4 @@ resources:
     type: 'github'
     name: 'haimizrael/test.template'
     endpoint: 'haimizrael'
-jobs:
-- template: build.steps.yml@templates
+jobs: build.steps.yml@templates
