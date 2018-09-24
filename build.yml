@@ -7,5 +7,5 @@ resources:
 #jobs:
 #- template: build.steps.yml@templates
 steps:
-- powershell: Test-Path 'HKCU:\SOFTWARE\Microsoft\CosmosDBEmulator'
+- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
 
