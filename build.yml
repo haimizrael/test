@@ -11,5 +11,5 @@ jobs:
 
 #steps:
 #- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
-#- powershell: (gci env:)
+- powershell: (gci env:) | fl
 
