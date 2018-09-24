@@ -11,6 +11,6 @@ variables:
 
 steps:
 #- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
-- powershell: Write-Host "value is $($env:testvar)"
-- powershell: Write-Host "value is $($env:testvar2)"
+- powershell: Write-Host "publishPackagesOnBuild value is $($env:publishPackagesOnBuild)"
+- powershell: Write-Host "publishPackagesOnBuild value is $(publishPackagesOnBuild)"
 
