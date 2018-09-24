@@ -6,6 +6,10 @@ resources:
     endpoint: 'haimizrael'
 #jobs:
 #- template: build.steps.yml@templates
+variables:
+  testvar: valueinyml
+
 steps:
-- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
+#- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
+- powershell: Write-Host "value is $(testvar)"
 
