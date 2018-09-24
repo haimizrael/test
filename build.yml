@@ -11,5 +11,6 @@ resources:
 
 steps:
 #- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
+- powershell: if (!(Get-Command Get-VSSetupInstance -EA SilentlyContinue)) { Install-Module VSSetup -Scope CurrentUser -AllowClobber -Force } (Get-VSSetupInstance -All | Select-VSSetupInstance -Require 'Microsoft.VisualStudio.PackageGroup.TestTools.TestPlatform.V2.CLI' -Latest).InstallationPath
 - powershell: (gci env:) | fl
 
