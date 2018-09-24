@@ -9,7 +9,7 @@ resources:
 jobs:
 - template: build.steps.yml@templates
 
-#steps:
+steps:
 #- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
 - powershell: (gci env:) | fl
 
