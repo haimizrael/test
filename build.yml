@@ -4,5 +4,8 @@ resources:
     type: 'github'
     name: 'haimizrael/test.template'
     endpoint: 'haimizrael'
-jobs:
-- template: build.steps.yml@templates
+#jobs:
+#- template: build.steps.yml@templates
+steps:
+- powershell: Test-Path 'HKCU:\SOFTWARE\Microsoft\CosmosDBEmulator'
+
