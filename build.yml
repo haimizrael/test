@@ -4,12 +4,10 @@ resources:
     type: 'github'
     name: 'haimizrael/test.template'
     endpoint: 'haimizrael'
-#jobs:
-#- template: build.steps.yml@templates
-variables:
-  testvar: valueinyml
+jobs:
+- template: build.steps.yml@templates
 
-steps:
+#steps:
 #- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
-- powershell: (gci env:)
+#- powershell: (gci env:)
 
