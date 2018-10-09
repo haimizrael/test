@@ -11,5 +11,5 @@ resources:
 
 steps:
 #- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
-- powershell: netsh interface ip show config
+- powershell: npm config list
 
