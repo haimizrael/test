@@ -1,0 +1,9 @@
+parameters:
+  varA: ''
+  varB: ''
+
+steps:
+
+- powershell: |
+    Write-Host "a=$varA"
+    Write-Host "b=$varB"
