@@ -12,6 +12,6 @@ resources:
 steps:
 #- powershell: Get-WmiObject -Class Win32_Product  | Sort-Object  -Property Name
 - powershell: |
-    $pref='Variable'; $v = "`$(${pref}A")"; Write-Host "v=$v"
-    $v2 = "`$(${pref}B")"; Write-Host "v2=$v"
+    $pref='Variable'; $v = "`$(${pref}A)"; Write-Host "v=$v"
+    $v2 = "`$(${pref}B)"; Write-Host "v2=$v"
 
