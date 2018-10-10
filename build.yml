@@ -14,6 +14,9 @@ steps:
 - powershell: |
     $pref='Variable'; $v = "'`$(${pref}A)'"; Write-Host "v=$v"
     $v2 = "'`$(${pref}B)'"; Write-Host "v2=$v2"
-    iex $v
-    iex $v2
+  
+    - template: shared/install-vpn.yml
+      parameters:
+        varA: $v
+        varB: $v2
 
