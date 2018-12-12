@@ -1,5 +1,13 @@
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
+# do not build PRs
+pr: none
+# do not build tags
+trigger:
+  branches:
+    exclude:
+    - refs/tags
+
 resources:
   repositories:
   - repository: 'templates'
