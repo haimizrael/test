@@ -5,8 +5,7 @@ pr: none
 # do not build tags
 trigger:
   branches:
-    include:
-    - *
+    include: *
     exclude:
     - refs/tags
 
