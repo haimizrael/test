@@ -9,10 +9,9 @@ trigger:
     - refs/*
     exclude:
     - refs/tags/*
-
+  
 steps:
 - powershell: |
-    & setx TestVar2 123456 /M
-    & setx TestVar2 123456
+    '##vso[task.setvariable variable=TestVar2]123456'
 
 - powershell: Write-Host "TestVar2=${env:TestVar2}"
