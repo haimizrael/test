@@ -14,4 +14,4 @@ steps:
 - powershell: |
     & setx TestVar 123456 /M
 
-- script: echo TestVar=%TestVar%
+- powershell: Write-Host "TestVar=${env:TestVar}"
