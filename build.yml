@@ -12,6 +12,6 @@ trigger:
 
 steps:
 - powershell: |
-    & setx TestVar 123456 /M
+    & setx TestVar2 123456 /M
 
-- powershell: Write-Host "TestVar=${env:TestVar}"
+- powershell: Write-Host "TestVar2=${env:TestVar2}"
