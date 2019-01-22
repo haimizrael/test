@@ -2,7 +2,7 @@ parameters:
   elements: []
 
 steps:
-${{ each element in parameters.elements }}:
-  - template: step.yml
+- ${{ each element in parameters.elements }}:
+  template: step.yml
     parameters:
       elementName: ${{ element }}
