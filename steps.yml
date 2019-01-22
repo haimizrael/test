@@ -5,4 +5,4 @@ steps:
 ${{ each element in parameters.elements }}
 - template: step.yml
   parameters:
-    elementName: ${{ parameters.elements }}
+    elementName: ${{ element }}
