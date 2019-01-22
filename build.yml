@@ -13,4 +13,7 @@ trigger:
 steps:
 - template: step.yml
   parameters:
-    elements: ['A','B','C']
+    elements:
+    - 'A'
+    - 'B'
+    - 'C'
