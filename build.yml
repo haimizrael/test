@@ -11,7 +11,6 @@ trigger:
     - refs/tags/*
   
 steps:
-- powershell: |
-    '##vso[task.setvariable variable=TestVar2]123456'
-
-- powershell: Write-Host "TestVar2=${env:TestVar2}"
+- template: step.yml
+  parameters:
+    elements: ['A','B','C']
