@@ -11,7 +11,7 @@ trigger:
     - refs/tags/*
   
 steps:
-- template: step.yml
+- template: steps.yml
   parameters:
     elements:
     - 'A'
