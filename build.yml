@@ -9,8 +9,10 @@ trigger:
     - refs/*
     exclude:
     - refs/tags/*
-  
+variables:
+  BElements: ['Four','Five']
+
 steps:
 - template: steps.yml
   parameters:
-    elements: [],$(AElements)
+    elements: $(BElements)
