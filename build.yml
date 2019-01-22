@@ -16,4 +16,4 @@ variables:
 steps:
 - template: steps.yml
   parameters:
-    elements: variables['ElementsFor*']
+    elements: ${{ variables['ElementsFor*'] }}
