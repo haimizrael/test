@@ -1,9 +1,8 @@
 parameters:
-  varA: ''
-  varB: ''
+  elements: []
 
 steps:
-
-- powershell: |
-    Write-Host "a=$varA"
-    Write-Host "b=$varB"
+${{ each element in parameters.elements }}
+- template: step.yml
+  parameters:
+    elementName: ${{ parameters.elements }}
