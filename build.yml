@@ -13,4 +13,4 @@ trigger:
 steps:
 - template: steps.yml
   parameters:
-    elements: ${{ insert }}: 'A,B,C'
+    elements: ['A','B','C']
