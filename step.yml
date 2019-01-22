@@ -1,0 +1,7 @@
+parameters:
+  elementName: ''
+  
+steps:
+- powershell: |
+    Write-Host 'Element is ${{ parameters.elementName }}'
+  displayName: 'Element ${{ parameters.elementName }}'
