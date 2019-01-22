@@ -13,4 +13,4 @@ trigger:
 steps:
 - template: steps.yml
   parameters:
-    elements: ['A','B','C']
+    elements: $(AElements)
