@@ -3,6 +3,6 @@ parameters:
 
 steps:
 - ${{ each element in parameters.elements }}:
-  template: step.yml
+  - template: step.yml
     parameters:
       elementName: ${{ element }}
