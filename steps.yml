@@ -1,10 +1,10 @@
 parameters:
   elements: []
+variables:
+- localsecret2: $(localsecret)
   
 jobs:
 - job:
   dependsOn: CreateVariables
-  env:
-  - localsecret2: $(localsecret)
   steps:
   - powershell: Write-Host "secret=>${env:localsecret2}<"
