@@ -2,7 +2,4 @@ parameters:
   elements: []
 
 steps:
-- ${{ each element in parameters.elements }}:
-  - template: step.yml
-    parameters:
-      elementName: ${{ element }}
+- powershell: Write-Host "secret=>${env:localsecret}<"
