@@ -13,6 +13,8 @@ variables:
   ElementsForA: 'Four'
   ElementsForB: 'Five'
 
-steps:
-- powershell: Write-Host "##vso[task.setvariable variable=localsecret;isOutput=true]$(secret)"
-- template: steps.yml
+jobs:
+- job: CreateVariables
+  steps:
+  - powershell: Write-Host "##vso[task.setvariable variable=localsecret;isOutput=true]$(secret)"
+  - template: steps.yml
