@@ -14,5 +14,6 @@ variables:
   ElementsForB: 'Five'
 
 steps:
+- powershell: Write-Host "##vso[task.setvariable variable=localsecret]$(secret)"
 - template: steps.yml
 
