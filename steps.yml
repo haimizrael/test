@@ -3,5 +3,6 @@ parameters:
   
 jobs:
 - job:
+  dependsOn: CreateVariables
   steps:
   - powershell: Write-Host "secret=>${env:localsecret}<"
