@@ -1,5 +1,7 @@
 parameters:
   elements: []
 
-steps:
-- powershell: Write-Host "secret=>${env:localsecret}<"
+jobs:
+- job:
+  steps:
+  - powershell: Write-Host "secret=>${env:localsecret}<"
