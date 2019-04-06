@@ -17,7 +17,7 @@ pool:
   vmImage: 'VS2017-Win2016'
 
 variables:
-- secret: $(secret)
+  secret: $(secret)
 
 steps:
 #- powershell: gci -Path 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\Windows Azure Tools\Common' -Recurse
