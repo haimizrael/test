@@ -16,5 +16,5 @@ variables:
 jobs:
 - job:
   steps:
-  - powershell: Write-Host "##vso[task.setvariable variable=localsecret]$(secret)"
+  - powershell: Write-Host "##vso[task.setvariable variable=localsecret;isOutput=true]$(secret)"
 - template: steps.yml
