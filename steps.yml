@@ -4,7 +4,7 @@ parameters:
 jobs:
 - job:
   variables:
-  - localsecret2: $(localsecret)
+    localsecret2: $(localsecret)
   dependsOn: CreateVariables
   steps:
   - powershell: Write-Host "secret=>${env:localsecret2}<"
