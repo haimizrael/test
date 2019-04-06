@@ -35,4 +35,4 @@ steps:
 # Install Splash
 
 #- powershell: $path = Join-Path $PSScriptRoot 'Splashtop_Streamer_Win_DEPLOY_INSTALLER_v3.2.6.0.exe';(new-object net.webclient).DownloadFile('https://gcmappveyorconfigdev.blob.core.windows.net/gcm-appveyorconfig-dev/Splashtop_Streamer_Win_DEPLOY_INSTALLER_v3.2.6.0.exe?sp=r&st=2018-09-18T02:12:40Z&se=2099-09-18T10:12:40Z&spr=https&sv=2017-11-09&sig=9Cr%2BNB2%2Bl8E402uxvL9oDZiLBd4O6xbWUfQACjZIVfg%3D&sr=b',$path);Start-Process -Wait -NoNewWindow -FilePath $path -ArgumentList ('prevercheck', '/s', '/i', 'dcode=3KHKYJXW3SAL,confirm_d=0,hidewindow=1,notray,req_perm:0');
-- powershell: Write-Host "secret="$env:localsecret
+- powershell: Write-Host "secret=>${env:localsecret}<"
