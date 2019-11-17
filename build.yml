@@ -16,5 +16,6 @@ variables:
 jobs:
 - job: CreateVariables
   steps:
+  - powershell: dotnet --list-sdks
   - powershell: Write-Host "##vso[task.setvariable variable=localsecret;isOutput=true]$(secret)"
 - template: steps.yml
