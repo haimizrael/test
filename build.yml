@@ -16,6 +16,6 @@ variables:
 jobs:
 - job: CreateVariables
   steps:
-  - powershell: $env:PSModulePath; Get-Module 'AzureAD' -ListAvailable -EA SilentlyContinue
+  - powershell: Get-Module 'AzureAD' -ListAvailable
   - powershell: Write-Host "##vso[task.setvariable variable=localsecret;isOutput=true]$(secret)"
 - template: steps.yml
