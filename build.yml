@@ -16,6 +16,6 @@ variables:
 jobs:
 - job: CreateVariables
   steps:
-  - powershell: get-childitem 'C:\Modules' | Select-Object -Property FullName
+  - powershell: Get-Module 'AzureRM' -ListAvailable
   - powershell: Write-Host "##vso[task.setvariable variable=localsecret;isOutput=true]$(secret)"
 - template: steps.yml
