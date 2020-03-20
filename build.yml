@@ -16,6 +16,6 @@ variables:
 jobs:
 - job: CreateVariables
   steps:
-  - powershell: get-module -ListAvailable | Select-Object -Property Name,Version | Sort-Object -Property Name,Version
+  - powershell: get-module -ListAvailable | Select-Object -Property Name,Version,Path | Sort-Object -Property Name,Version
   - powershell: Write-Host "##vso[task.setvariable variable=localsecret;isOutput=true]$(secret)"
 - template: steps.yml
