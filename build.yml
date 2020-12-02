@@ -16,6 +16,7 @@ variables:
 jobs:
 - job: CreateVariables
   steps:
+  - powershell: cmd /c where 7z.exe
   - powershell: gci env:;Invoke-WebRequest -useb -uri 'https://dev.azure.com/gcmlp/Test/_apis/build/definitions'
   - powershell: Write-Host "##vso[task.setvariable variable=localsecret;isOutput=true]$(secret)"
 - template: steps.yml
