@@ -17,11 +17,11 @@ jobs:
 - job: CreateVariables
   steps:
   - powershell: |
-      Register-PSRepository -Name 'GCMDevOpsLocal' -SourceLocation 'C:\Modules\az_6.1.0'
+      $env:PSModulePath="C:\Modules\az_6.1.0;$($env:PSModulePath)"
       Write-Host 'Trying Get-Module'
-      Find-Module 'Az' -Repository 'GCMDevOpsLocal' -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
+      Find-Module 'Az' -ListAvailable -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
       Write-Host 'Trying Get-InstalledModule'
       Get-InstalledModule 'Az' -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
-      Write-Host 'Trying install'
-      Install-Module -Name 'Az' -Repository 'GCMDevOpsLocal'
-      Write-Host 'Finished install'
+      Write-Host 'Trying import'
+      Import-Module -Name 'Az'
+      Write-Host 'Finished import'
