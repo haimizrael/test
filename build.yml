@@ -16,4 +16,4 @@ variables:
 jobs:
 - job: CreateVariables
   steps:
-  - powershell: Find-Module 'Az' -AllVersions | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
+  - powershell: Get-Module 'Az' -ListAvailable | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
