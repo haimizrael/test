@@ -17,11 +17,13 @@ jobs:
 - job: CreateVariables
   steps:
   - powershell: |
-      $env:PSModulePath = "'C:\Modules\az_6.1.0';$($env:PSModulePath)"
+      $env:PSModulePath = "'C:\Modules';$($env:PSModulePath)"
       Write-Host 'Trying Get-Module'
       Get-Module 'Az' -ListAvailable -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
       Write-Host 'Trying Get-InstalledModule'
       Get-InstalledModule 'Az' -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
       Write-Host 'Contents'
       gci 'C:\Modules\az_6.1.0'
-      #Install-Module -Name 'Az' -Repository 'C:\Modules\az_6.1.0'
+      Write-Host 'Trying install'
+      Install-Module -Name 'Az' -Repository 'C:\Modules'
+      Write-Host 'Finished install'
