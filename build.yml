@@ -18,4 +18,9 @@ jobs:
   steps:
   - powershell: |
       $env:PSModulePath = "'C:\Modules\az_6.1.0';$($env:PSModulePath)"
-      Get-InstalledModule 'Az' | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
+      Write-Host 'Trying Get-Module'
+      Get-Module 'Az' -ListAvailable -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
+      Write-Host 'Trying Get-InstalledModule'
+      Get-InstalledModule 'Az' -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
+      Write-Host 'Trying Install'
+      Install-Module -Name 'Az' -Repository 'C:\Modules\az_6.1.0'
