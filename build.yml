@@ -16,4 +16,4 @@ variables:
 jobs:
 - job: CreateVariables
   steps:
-  - powershell: $latestModule = Find-Module 'Az' -AllVersions | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First; Write-Host "Latest Module: $($latestModule.Name) $($latestModule.Version)"
+  - powershell: Find-Module 'Az' -AllVersions | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First
