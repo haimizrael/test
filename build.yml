@@ -18,6 +18,8 @@ jobs:
   steps:
   - powershell: |
       $env:PSModulePath="C:\Modules\az_6.1.0;$($env:PSModulePath)"
+      Write-Host 'Removing AzureRM'
+      '[A]zureRM','[A]zureRM.*' | Remove-Module 
       Write-Host 'Trying Get-Module'
       Get-Module 'Az' -ListAvailable -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
       Write-Host 'Trying Get-InstalledModule'
@@ -25,3 +27,4 @@ jobs:
       Write-Host 'Trying import'
       Import-Module -Name 'Az'
       Write-Host 'Finished import'
+      Write-Log "The following modules are loaded:`n$(Get-Module ('Az*') | Select Name,Version -Unique | Sort Name | Out-String)"
