@@ -20,7 +20,7 @@ jobs:
       choco install -y nvm.portable
       node -v
       npm -v
-      cmd /c refreshenv&nvm.exe install 16.10.0
+      &cmd /c "refreshenv&nvm.exe install 16.10.0"
       node -v
       npm -v
       return
