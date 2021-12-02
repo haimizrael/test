@@ -20,6 +20,9 @@ jobs:
       choco install -y nvm
       node -v
       npm -v
+      nvm install 16.10.0
+      node -v
+      npm -v
       return
       Write-Host 'Removing AzureRM'
       '[A]zureRM','[A]zureRM.*' | Remove-Module 
