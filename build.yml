@@ -17,7 +17,9 @@ jobs:
 - job: CreateVariables
   steps:
   - powershell: |
-      nvm
+      choco install -y nvm
+      node -v
+      npm -v
       return
       Write-Host 'Removing AzureRM'
       '[A]zureRM','[A]zureRM.*' | Remove-Module 
