@@ -20,7 +20,7 @@ jobs:
       choco install -y nvm
       node -v
       npm -v
-      nvm install 16.10.0
+      C:\ProgramData\nvm\nvm install 16.10.0
       node -v
       npm -v
       return
