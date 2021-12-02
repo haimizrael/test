@@ -20,8 +20,7 @@ jobs:
       choco install -y nvm.portable
       node -v
       npm -v
-      cmd /c where nvm
-      # &C:\ProgramData\nvm\nvm.exe install 16.10.0
+      &C:\ProgramData\nvm\nvm.exe install 16.10.0
       node -v
       npm -v
       return
