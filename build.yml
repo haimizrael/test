@@ -12,7 +12,6 @@ trigger:
 variables:
   ElementsForA: 'Four'
   ElementsForB: 'Five'
-
 jobs:
 - job: Build
   steps:
