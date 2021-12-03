@@ -14,11 +14,12 @@ variables:
   ElementsForB: 'Five'
 
 jobs:
-- job: CreateVariables
+- job: Build
   steps:
   - task: NodeTool@0
     inputs:
       versionSpec: '16.10.0'
+  - template: steps.yml
   - powershell: |
       choco install -y nvm.portable
       node -v
