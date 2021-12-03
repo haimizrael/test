@@ -12,28 +12,27 @@ trigger:
 variables:
   ElementsForA: 'Four'
   ElementsForB: 'Five'
-jobs:
-- job: Build
-  steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '16.10.0'
-  - template: steps.yml
-  - powershell: |
-      choco install -y nvm.portable
-      node -v
-      npm -v
-      refreshenv
-      c:/programdata/nvm/nvm.exe install 16.10.0
-      c:/programdata/nvm/nvm.exe use 16.10.0
-      refreshenv
-      node -v
-      npm -v
-      return
-      Write-Host 'Removing AzureRM'
-      '[A]zureRM','[A]zureRM.*' | Remove-Module 
-      Write-Host 'Trying Get-Module'
-      Get-Module 'Az' -ListAvailable -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.10.0'
+- template: steps.yml
+- powershell: |
+    choco install -y nvm.portable
+    node -v
+    npm -v
+    refreshenv
+    c:/programdata/nvm/nvm.exe install 16.10.0
+    c:/programdata/nvm/nvm.exe use 16.10.0
+    refreshenv
+    node -v
+    npm -v
+    return
+    Write-Host 'Removing AzureRM'
+    '[A]zureRM','[A]zureRM.*' | Remove-Module 
+    Write-Host 'Trying Get-Module'
+    Get-Module 'Az' -ListAvailable -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
       Write-Host 'Trying Get-InstalledModule'
       Get-InstalledModule 'Az' -ErrorAction SilentlyContinue | ? { ([version]::Parse($_.Version)).Major -eq 6 } | Select -First 1
       Write-Host 'Trying import'
