@@ -1,4 +1,7 @@
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.10.0'
 
 # do not build PRs
 pr: none
